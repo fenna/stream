@@ -46,7 +46,7 @@ class SimpleDetector(StreamingChangePointDetector):
         self.history = deque(maxlen=history)
 
 
-    def update(self, x: float) -> bool:
+    def update(self, x: float, raw_sample=None) -> bool:
         """
         Process a new sample and determine if it represents a change point.
         

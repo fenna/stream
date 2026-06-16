@@ -70,7 +70,7 @@ class HeartRateAnomalyDetector(StreamingChangePointDetector):
             f"confirmation_count={confirmation_count}"
         )
 
-    def update(self, feature_value: float) -> bool:
+    def update(self, feature_value: float, raw_sample=None) -> bool:
         """
         Update detector with new heart rate value.
         

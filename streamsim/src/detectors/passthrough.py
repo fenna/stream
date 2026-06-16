@@ -26,7 +26,7 @@ class PeakPassThrough(StreamingChangePointDetector):
     def __init__(self):
         self._drift_detected = False
 
-    def update(self, feature_value: Optional[float]) -> bool:
+    def update(self, feature_value: Optional[float], raw_sample=None) -> bool:
         """
         Returns True if feature_value is not None.
         Crucially, this also updates the drift_detected property.
