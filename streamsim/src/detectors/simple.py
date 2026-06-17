@@ -46,7 +46,7 @@ class SimpleDetector(StreamingChangePointDetector):
         self.history = deque(maxlen=history)
 
 
-    def update(self, x: float, raw_sample=None) -> bool:
+    def update(self, feature_value: float, raw_sample=None) -> bool:
         """
         Process a new sample and determine if it represents a change point.
         
@@ -60,7 +60,7 @@ class SimpleDetector(StreamingChangePointDetector):
             bool: True if the sample is flagged as a change point, False otherwise.
         
         """
-        self.history.append(x)
+        self.history.append(feature_value)
 
         if len(self.history) > 20:
             arr = np.array(self.history)
@@ -68,6 +68,6 @@ class SimpleDetector(StreamingChangePointDetector):
             mean = arr[:-1].mean()
             std = arr[:-1].std()
 
-            if std > 0 and abs(x - mean) > self.threshold * std:
+            if std > 0 and abs(feature_value - mean) > self.threshold * std:
                 return True
         return False
