@@ -18,13 +18,12 @@ with open("./config.yaml", "r", encoding="utf-8") as stream:
 try:
     if len(config["log_dir"]) > 0:
         LOG_DIR = Path(config["log_dir"])
-        print(f"Log directory set to: ./{LOG_DIR}")
     else:
         LOG_DIR = Path.home() / ".streamsim" / "logs"
 except KeyError:
     LOG_DIR = Path.home() / ".streamsim" / "logs"
 
-LOG_DIR = Path.home() / ".streamsim" / "logs"
+print(f"Log directory set to: ./{LOG_DIR}")
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 
 
