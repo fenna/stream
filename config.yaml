@@ -3,7 +3,8 @@ log_dir: "./logs"
 
 # Sensor file. A long-format CSV file containing time-series data to be used as the signal source for the simulation.
 # The file should have a header row with parameter names and subsequent rows with timestamped values.
-sensor_file: "./data/case_merge_frame1.csv"
+sensor_file: "./data/case_merge_NO_CAL_frame1.csv"
+selected_parameter: "a" # Name of signal to display, when `sensor_file` holds multiple signals
 timestamp_column: "parameter_sequence" # Name of the column in the CSV file that contains timestamps. This column will be used to determine the timing of data points during streaming.
 category_column: "parameter" # List of column names in the CSV file that contain the signal data for different parameters. These columns will be used to create separate signal streams during the simulation.
 value_column: "value" # Name of the column in the CSV file that contains the signal values. This column will be used to extract the actual data points for streaming.
