@@ -60,7 +60,7 @@ class ResidualThresholdDetector(StreamingChangePointDetector):
             
             # Log the ANOMALY clearly
             logger.info(
-                f"🚨 ANOMALY DETECTED: residual={residual:.4f} > threshold={self.threshold:.4f} | "
+                f"!! ANOMALY DETECTED: residual={residual:.4f} > threshold={self.threshold:.4f} | "
                 f"Raw={raw_sample:.4f} | Model={feature_value:.4f} | Count={self._sample_count}"
             )
             return True

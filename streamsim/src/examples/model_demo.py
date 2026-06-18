@@ -36,10 +36,13 @@ ModelLineRenderer.update()
 
 import logging
 from streamsim.src.core.config import LoggingSetup, PlottingSetup
+from streamsim.src.core.config import LOG_DIR
 
 logging_setup = LoggingSetup(
-    level=logging.DEBUG,
-    timestamp_filename=True             # Set to True if you want unique filenames per run
+    level=logging.INFO,
+    log_file=f"{LOG_DIR}/model_demo.log",
+    timestamp_filename=True,             # Set to True if you want unique filenames per run
+    console=True
 )
 logging_setup.setup_logging()
 logger = logging.getLogger(__name__)
@@ -65,10 +68,6 @@ from streamsim.src.core.simulator import StreamingSimulator
 
 def model_demo():
     # Setup
-    logging_setup = LoggingSetup(level=logging.INFO, console=True)
-    logging_setup.setup_logging()
-    logger = logging.getLogger(__name__)
-
     fig, ax = plt.subplots(figsize=(12, 6))
     setup = PlottingSetup(fig=fig, ax=ax, title="Model line", ylim=(0,15))
 
